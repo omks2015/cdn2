@@ -1,0 +1,46 @@
+var cssId = 'FontAwsome';  // you could encode the css path itself to generate id..
+if (!document.getElementById(cssId))
+{
+    var head  = document.getElementsByTagName('head')[0];
+    var link  = document.createElement('link');
+    link.id   = cssId;
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'https://use.fontawesome.com/releases/v5.0.13/css/all.css';
+    link.media = 'all';
+    head.appendChild(link);
+}
+
+
+var cssId = 'BootStrap';  // you could encode the css path itself to generate id..
+if (!document.getElementById(cssId))
+{
+    var head  = document.getElementsByTagName('head')[0];
+    var link  = document.createElement('link');
+    link.id   = cssId;
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css';
+    link.media = 'all';
+    head.appendChild(link);
+}
+
+
+
+
+var cssId = 'myCss';  // you could encode the css path itself to generate id..if (!document.getElementById(cssId)){    var head  = document.getElementsByTagName('head')[0];    var link  = document.createElement('link');    link.id   = cssId;    link.rel  = 'stylesheet';    link.type = 'text/css';    link.href = 'https://cdn.ourmaster.org/spiceroot/style.css';    link.media = 'all';    head.appendChild(link);}var cssId = 'menu';  // you could encode the css path itself to generate id..if (!document.getElementById(cssId)){    var head  = document.getElementsByTagName('head')[0];    var link  = document.createElement('link');    link.id   = cssId;    link.rel  = 'stylesheet';    link.type = 'text/css';    link.href = 'https://cdn.ourmaster.org/spiceroot/menu.css';    link.media = 'all';    head.appendChild(link);}
+
+<script>
+var imported = document.createElement('script');
+imported.src = 'https://cdn.ourmaster.org/spiceroot/custom-contact.js';
+document.head.appendChild(imported);
+</script>
+<script>
+   
+   function checkBeforeSubmit() {
+   document.getElementById("form").style.display = "none";
+  setTimeout(function(){ document.getElementById("status").style.display = "block"; }, 1000);
+  setTimeout(function(){ document.getElementById("status").style.display = "none"; }, 5000);
+  setTimeout(function(){ document.getElementById("success").style.display = "block"; document.getElementById("additional").style.display = "block"; }, 6000);
+}
+</script>

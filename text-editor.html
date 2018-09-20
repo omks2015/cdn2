@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Online HTML editor - Live preview on the same window. Easy and user friendly code editor with live preview. ">
+  <meta name="author" content="Selvakumaran Krishnan">
+  <title>Online HTML Editor - Web Tools</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
+  <!-- Bootstrap core CSS-->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html"><strong></i> Ourmaster</strong> WebTools <strong><i class="fa fa-wrench" aria-hidden="true"></i></strong></a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="HTML Editor">
+          <a class="nav-link" href="/html-editor">
+            <i class="fa fa-fw fa-code"></i>
+            <span class="nav-link-text">HTML Editor</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Text Editor">
+          <a class="nav-link" href="text-editor">
+            <i class="fa fa-fw fa-pencil-square-o"></i>
+            <span class="nav-link-text">Text Editor</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Color Codes">
+          <a class="nav-link" href="color-codes">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Color Codes</span>
+          </a>
+        </li>
+       
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+  
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper" style="padding: 0px ! important; padding-left: 3px;">
+    <div class="container-fluid" style="margin:0px ! important; padding: 0px ! important;">
+        
+
+	  
+
+	  <nav style="width:100%; background: #ECEFF1 ! important; padding-left:5px;">
+
+
+    <button class = "toolbar-toggle" type="button" id ="htmlbutton" onclick="togglehtml(); toggleall();">HTML</a></button>
+    <button class = "toolbar-toggle" type="button"  id ="cssbutton" onclick="togglecss(); toggleall();">CSS</button>
+    <button class = "toolbar-toggle" type="button" id ="jsbutton"onclick="togglejs(); toggleall();">JS</button>
+	<button class = "toolbar-toggle" type="button" id ="previewbutton" onclick="togglepreview();">Preview</button>
+
+	  <button class = "toolbar-button" type="button" title="Save">
+            <i class="fa fa-floppy-o fa-lg"></i>
+          </button>
+		  <button class = "toolbar-button" type="button"  href="#" onclick="loadCSS();" title="Run">
+            <i class="fa fa-play fa-lg"></i>
+			</button>
+		 <button class = "toolbar-button" type="button"  href="#" id="editorbutton" onclick="editoronly()"  title="Full Screen Editor">
+            <strong><i class="fa fa-chevron-circle-right fa-lg"></i></strong>
+          </button>
+
+		  </div>
+</nav>
+
+
+      <div style="display:flex;">
+        <div id="editorpanel" style = "width: 100% ! important; margin: 1px;">
+
+  <div id="html-editor">
+  <div style= "padding:5px; margin:0px; background: #f7f7f7; border: 1px solid #ddd;">HTML Editor</div>
+<textarea id="html" placeholder="HTML"> <!-- Write Your HTML code here --></textarea>
+ </div> 
+
+ 
+ <div style="display:flex;">
+  <div  style = "width:100%;" id="css-editor" >
+  <div style= "padding:5px; margin:0px; background: #f7f7f7; border: 1px solid #ddd;">CSS Editor</div>
+      <textarea id="css" placeholder="CSS"> //*Place your CSS Code here*//</textarea>
+  </div>
+  <div  style = "width:100%;" id="js-editor" style="resize:both;">
+  <div style= "padding:5px; margin:0px; background: #f7f7f7; border: 1px solid #ddd;">JavaScript Editor</div>
+      <textarea id="js" placeholder="JavaScript">//Place your JavaScript Code here</textarea>
+  </div>
+  </div> 
+</div>	
+
+ 
+	<div id="previewpanel" class="previewpanel" style="width: 100% ! important; margin: 1px;">
+<div style= "padding:5px; margin:0px; background: #f7f7f7; border: 1px solid #ddd;">Preview Panel</div>
+<iframe style="width:100% ! important;" id="code"></iframe>
+
+ </div>  
+		
+
+
+
+        </div>
+      
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Ourmaster 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+	 
+  </div>
+  <style> 
+textarea {
+  width: 100%;
+  height: 100%;
+ overflow-y:scroll;
+  display: inline-block;
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+
+iframe {
+outline: none;
+border:none;
+  width: 100% ! important;
+  height: 100%;
+  margin: auto;
+ border: 1px solid #ddd;
+}
+.CodeMirror {
+font-weight: 400 ! important;
+color: #666666 ! important;
+        width: 100% ! important;
+		height: 100% ! important
+border:1px solid #ccc ! important;
+overflow-x: none ! important;
+overflow-y:none ! important;
+
+ border: 1px solid #ddd;
+      }
+	  
+.toolbar-button{
+
+background: white;
+border: 1px solid #cfd8dc;
+border-radius: 3px;
+margin-left: 0px;
+margin-top: 5px;
+margin-bottom: 5px;
+padding-left: 15px;
+padding-right: 15px;
+padding-top: 5px;
+padding-bottom: 5px;
+cursor: pointer;
+}
+
+.toolbar-toggle{
+color: white;
+background: #5cb85c;
+border: 1px solid #cfd8dc;
+border-radius: 3px;
+margin-left: 0px;
+margin-top: 5px;
+margin-bottom: 5px;
+padding-left: 15px;
+padding-right: 15px;
+padding-top: 5px;
+padding-bottom: 5px;
+cursor: pointer;
+}
+</style>
+
+<link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css">
+<script src="https://codemirror.net/lib/codemirror.js"></script>
+<script src="https://codemirror.net/addon/edit/matchbrackets.js"></script>
+<script src="https://codemirror.net/addon/search/search.js"></script>
+<script src="https://codemirror.net/addon/search/searchcursor.js"></script>
+<script src="https://codemirror.net/addon/fold/foldcode.js"></script>
+<script src="https://codemirror.net/addon/fold/brace-fold.js"></script>
+<script src="https://codemirror.net/addon/comment/continuecomment.js"></script>
+<script src="https://codemirror.net/mode/javascript/javascript.js"></script>
+<script src="http://codemirror.net/addon/edit/continuecomment.js"></script>
+ 
+
+<script>
+function loadCSS() {
+    var $head = $("#code").contents().find("head");                
+    $head.html("<style>" + editor.getValue() + "</style>" + "<scr" + "ipt>" + editor2.getValue() + "</scr" + "ipt>");
+}; 
+
+
+
+var delay;
+// Initialize CodeMirror editor with a nice html5 canvas demo.
+var editor = CodeMirror.fromTextArea(document.getElementById("css"), {
+        lineNumbers: true,
+        matchBrackets: true
+    });
+	editor.on("change", function() {
+    clearTimeout(delay);
+    
+    delay = setTimeout(updatePreview, 10);
+});
+function updatePreview() {
+    loadCSS();
+}
+setTimeout(updatePreview, 10);
+
+
+
+var delay2;
+// Initialize CodeMirror editor with a nice html5 canvas demo.
+var editor2 = CodeMirror.fromTextArea(document.getElementById("js"), {
+        lineNumbers: true,
+        matchBrackets: true
+    });
+	
+		
+editor2.on("change", function() {
+    clearTimeout(delay2);
+    
+    delay2 = setTimeout(updatePreview2, 10);
+});
+function updatePreview2() {
+    loadCSS();
+}
+setTimeout(updatePreview2, 10);
+
+
+
+
+var delay3;
+// Initialize CodeMirror editor with a nice html5 canvas demo.
+var editor3 = CodeMirror.fromTextArea(document.getElementById("html"), {
+        lineNumbers: true,
+        matchBrackets: true
+    });
+	
+	editor3.on("change", function() {
+    clearTimeout(delay3);
+    
+    delay3 = setTimeout(updatePreview3, 0);
+});
+
+function updatePreview3() {
+    var previewFrame3 = document.getElementById('code');
+    var preview3 =  previewFrame3.contentDocument ||  previewFrame3.contentWindow.document;
+    preview3.open();
+    preview3.write(editor3.getValue());
+    preview3.close();
+    loadCSS();
+}
+setTimeout(updatePreview3, 0);
+
+</script>
+  
+  <script>
+
+  
+  function toggleall() {
+  var x = document.getElementById("html-editor");
+var y = document.getElementById("css-editor");
+var z = document.getElementById("js-editor");
+var panel = document.getElementById("editorpanel");
+  
+  if (x.style.display === "none"  && x.style.display === "none" &&  x.style.display === "none"  ) {
+        panel.style.display = "none";	
+    } else {
+panel.style.display = "block";
+    } 
+  
+  }
+  
+  
+  function togglehtml() {
+    var x = document.getElementById("htmlbutton");
+	var y = document.getElementById("html-editor");
+    if (y.style.display === "none") {
+        y.style.display = "block";
+		x.style.background = "green";
+		x.style.color = "white";
+		
+    } else {
+        y.style.display = "none";
+		x.style.background = "white";
+		x.style.color = "grey";
+    }
+}
+
+function togglecss() {
+    var x = document.getElementById("cssbutton");
+	var y = document.getElementById("css-editor");
+    if (y.style.display === "none") {
+        y.style.display = "block";
+		x.style.background = "green";
+		x.style.color = "white";
+		
+    } else {
+        y.style.display = "none";
+		x.style.background = "white";
+		x.style.color = "grey";
+    }
+}
+function togglejs() {
+    var x = document.getElementById("jsbutton");
+	var y = document.getElementById("js-editor");
+    if (y.style.display === "none") {
+        y.style.display = "block";
+		x.style.background = "green";
+		x.style.color = "white";
+		
+    } else {
+        y.style.display = "none";
+		x.style.background = "white";
+		x.style.color = "grey";
+    }
+}
+
+</script>
+  
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<div class="products">
+    <form>
+        <p>
+            <!-- Fist article -->
+            <span>Article 1</span>
+            <!-- A name construct so that I can easilly find in which iteration of the loop I am -->
+            <input type="hidden" name="article[0].id" value="1" />
+            <input type="hidden" name="article[0].name" value="article1" />
+            <button class="addButton">Add article</button>
+        </p>
+        <p>
+            <!-- Second article -->
+            <span>Article 2</span>
+            <input type="hidden" name="article[1].id" value="2" />
+            <input type="hidden" name="article[1].name" value="article2" />
+            <button class="addButton">Add article</button>
+        </p>
+         <p>
+            <!-- Second article -->
+            <span>Article 2</span>
+            <input type="hidden" name="article[1].id" value="3" />
+            <input type="hidden" name="article[1].name" value="article3" />
+            <button class="addButton">Add article</button>
+        </p>
+        <!-- … others articles -->
+    </form>
+</div>
+
+
+
+<textarea id="output"></textarea>
+
+
+<script>
+$(document).ready(function () {
+    $(".addButton").on("click", function (event) {
+        event.preventDefault();
+        var button = $(this);
+        var parent = button.parent(); // We need to find the container in which to seach our fields.
+        var idArticle = parent.find("input[name$='.id']").val(); // Find the ID
+        var nameArticle = parent.find("input[name$='.name']").val(); // Find ather data
+       
+document.getElementById("output").value += "Test" + "\n";
+	   alert("Add article with id = " + idArticle + " and name = " + nameArticle);
+        // Next step is the ajax method to call the server with the correct data. 
+    });
+});
+</script>
+
+
